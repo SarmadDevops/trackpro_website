@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { scroll-behavior: smooth; }
+
+@layer base {
+  body {
+    @apply font-body text-brand-ink antialiased;
+  }
+  h1, h2, h3, h4 { @apply font-display; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-orange px-7 py-3
+           font-display font-semibold text-white transition-colors hover:bg-brand-orangeDark
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-7 py-3
+           font-display font-semibold text-white transition-colors hover:bg-white/10;
+  }
+  .container-tp { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.22em] text-brand-orange;
+  }
+  .section-heading {
+    @apply font-display text-4xl font-extrabold leading-[1.1] sm:text-5xl;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
