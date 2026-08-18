@@ -1,4 +1,5 @@
 import Underlined from "./Underlined";
+import pakMap from "../assets/pakistan-map.jpg";
 
 const bullets = [
   "One live map for every vehicle, driver, and route.",
@@ -7,40 +8,67 @@ const bullets = [
   "Reports that turn telemetry into real cost savings.",
 ];
 
+const vehicleChips = [
+  { label: "Truck-402", speed: "62 km/h", dot: "bg-emerald-400", top: "20%", left: "76%" },
+  { label: "Van-118", speed: "0 km/h · Idle", dot: "bg-white/40", top: "48%", left: "12%" },
+  { label: "Car-77", speed: "48 km/h", dot: "bg-emerald-400", top: "72%", left: "56%", mobile: false },
+];
+
+function VehicleChip({ label, speed, dot, top, left, mobile = true }) {
+  return (
+    <div
+      style={{ top, left }}
+      className={`absolute flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-xl border border-white/10 bg-white/[0.06] px-3 py-1.5 backdrop-blur-md ${
+        mobile ? "flex" : "hidden sm:flex"
+      }`}
+    >
+      <span className={`h-1.5 w-1.5 flex-none animate-pulse rounded-full ${dot}`} />
+      <span className="text-[11px] font-medium text-white/90 sm:text-xs">
+        {label} <span className="text-white/40">·</span> {speed}
+      </span>
+    </div>
+  );
+}
+
+function KpiPill({ value, suffix, label }) {
+  return (
+    <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 backdrop-blur-md">
+      <span className="font-display text-lg font-extrabold text-white">
+        {value}
+        <span className="text-brand-orange">{suffix}</span>
+      </span>
+      <span className="text-[11px] text-white/50">{label}</span>
+    </div>
+  );
+}
+
 export default function Stats() {
   return (
-    <section className="bg-brand-ink py-20 text-white md:py-28">
-      <div className="container-tp grid items-start gap-14 lg:grid-cols-2">
-        <div className="relative">
-          <div className="overflow-hidden rounded-xl2 bg-brand-coal">
-            <img
-              src="/stats.jpg"
-              alt="Fleet operators using TrackPro"
-              className="h-[420px] w-full object-cover"
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-                e.currentTarget.parentElement.classList.add("grid", "place-items-center");
-                e.currentTarget.parentElement.insertAdjacentHTML(
-                  "beforeend",
-                  '<span class="text-white/25 text-sm p-10 text-center">Add /stats.jpg to public/</span>'
-                );
-              }}
-            />
-          </div>
-
-          <div className="absolute bottom-6 left-6 flex gap-8 rounded-2xl bg-brand-ink/80 px-7 py-5 backdrop-blur">
-            <div>
-              <div className="font-display text-4xl font-extrabold">
-                12k<span className="text-brand-orange">+</span>
-              </div>
-              <div className="mt-1 text-xs text-white/60">Vehicles tracked</div>
+    <section className="bg-brand-ink py-24 text-white">
+      <div className="container-tp grid items-center gap-14 lg:grid-cols-2">
+        <div>
+          <div className="relative mx-auto mb-8 max-w-md sm:mb-10">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center"
+            >
+              <div className="aspect-square w-[85%] animate-pulse rounded-full bg-brand-orange/[0.15] blur-3xl [animation-duration:4s]" />
             </div>
-            <div className="w-px bg-white/15" />
-            <div>
-              <div className="font-display text-4xl font-extrabold">
-                99.6<span className="text-brand-orange">%</span>
-              </div>
-              <div className="mt-1 text-xs text-white/60">Signal uptime</div>
+
+            <img
+              src={pakMap}
+              alt="Pakistan coverage map"
+              className="h-auto w-full object-contain"
+            />
+
+
+            {vehicleChips.map((v) => (
+              <VehicleChip key={v.label} {...v} />
+            ))}
+
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-4 sm:absolute sm:-bottom-5 sm:left-4 sm:justify-start sm:pt-0">
+              <KpiPill value="12k" suffix="+" label="Vehicles" />
+              <KpiPill value="99.6" suffix="%" label="Uptime" />
             </div>
           </div>
         </div>
@@ -51,7 +79,7 @@ export default function Stats() {
             Find your vehicle{" "}
             <Underlined className="text-brand-orange">from here</Underlined>
           </h2>
-          <p className="mt-6 text-white/65">
+          <p className="mt-16 text-white/65">
             TrackPro replaces spreadsheets and guesswork with a single live view of your
             operation. Whether you run four vehicles or four hundred, you always know where
             they are, how they are driven, and what they cost.
@@ -59,8 +87,12 @@ export default function Stats() {
 
           <ul className="mt-8 space-y-4">
             {bullets.map((b) => (
-              <li key={b} className="flex items-start gap-3 text-white/85">
-                <span className="mt-1.5 h-2 w-2 flex-none rounded-sm bg-brand-orange" />
+              <li key={b} className="flex items-center gap-3 text-white/85">
+                <span className="grid h-6 w-6 flex-none place-items-center rounded-md bg-brand-orange/15 text-brand-orange">
+                  <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                </span>
                 {b}
               </li>
             ))}

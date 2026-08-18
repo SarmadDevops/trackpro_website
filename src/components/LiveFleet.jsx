@@ -1,11 +1,15 @@
 import Underlined from "./Underlined";
 import { IconSpeed, IconPin, IconArrow } from "./icons";
+import carImg from "../assets/car.png";
+import bikeImg from "../assets/bike.png";
+import truckImg from "../assets/truck.png";
+import busImg from "../assets/bus.png";
 
 const vehicles = [
-  { name: "R1 Yamaha", img: "/vehicles/yamaha.png", tint: "bg-[#FBF6E9]", speed: "62 km/h", status: "Online" },
-  { name: "Mercedes GLK", img: "/vehicles/mercedes.png", tint: "bg-[#FCEEE9]", speed: "48 km/h", status: "Online" },
-  { name: "Audi A1 S-Line", img: "/vehicles/audi.png", tint: "bg-[#EAF1FB]", speed: "0 km/h", status: "Idle" },
-  { name: "BMW 320i", img: "/vehicles/bmw.png", tint: "bg-[#F1F1F1]", speed: "75 km/h", status: "Online" },
+  { name: "Cars", img: carImg, tint: "bg-[#EAF1FB]", speed: "64 km/h", status: "Online", imgClass: "h-46" },
+  { name: "Bikes", img: bikeImg, tint: "bg-[#F1F1F1]", speed: "38 km/h", status: "Online", imgClass: "h-30 mt-8" },
+  { name: "Trucks", img: truckImg, tint: "bg-[#EAF1FB]", speed: "52 km/h", status: "Online", imgClass: "h-40 mt-6" },
+  { name: "Bus / Van", img: busImg, tint: "bg-[#F1F1F1]", speed: "0 km/h", status: "Idle", imgClass: "h-40 mt-6" },
 ];
 
 const IconFlame = (p) => (
@@ -39,7 +43,7 @@ export default function LiveFleet() {
                 <img
                   src={v.img}
                   alt={v.name}
-                  className="h-36 w-full object-contain"
+                  className={`w-full object-contain ${v.imgClass || "h-36"}`}
                   onError={(e) => {
                     e.currentTarget.style.display = "none";
                   }}

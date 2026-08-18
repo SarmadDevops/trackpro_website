@@ -9,7 +9,7 @@ export default function Underlined({ children, className = "", width = "100%" })
         alt=""
         aria-hidden="true"
         style={{ maxWidth: width }}
-        className="pointer-events-none select-none absolute left-1/2 top-full -translate-x-1/2 -mt-[0.05em] w-full"
+        className="pointer-events-none select-none absolute left-1/2 -translate-x-1/2 top-[70%] w-full"
       />
     </span>
   );

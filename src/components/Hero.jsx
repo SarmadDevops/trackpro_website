@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Underlined from "./Underlined";
+import heroBg from "../assets/hero-bg.png";
 
 const fleetSizes = ["1–10 vehicles", "11–50 vehicles", "51–200 vehicles", "200+ vehicles"];
 
@@ -15,12 +16,13 @@ export default function Hero() {
     <section id="top" className="relative overflow-hidden bg-brand-ink text-white">
       <div className="absolute inset-0">
         <img
-          src="/hero-bg.jpg"
+          src={heroBg}
           alt=""
-          className="h-full w-full object-cover opacity-70"
+          className="h-full w-full object-cover opacity-200"
           onError={(e) => (e.currentTarget.style.display = "none")}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-ink via-brand-ink/90 to-brand-ink/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-ink via-brand-ink/50 to-brand-ink/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-ink/70 via-transparent to-transparent" />
       </div>
 
       <div className="container-tp relative grid gap-12 pb-20 pt-36 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:pt-40">
@@ -31,13 +33,12 @@ export default function Hero() {
           </span> */}
 
           <h1 className="mt-6 font-display text-5xl font-extrabold leading-[1.05] sm:text-6xl">
-            Know where every
+            Finding your vehicle,
             <br />
-            vehicle is,{" "}
-            <Underlined className="text-brand-orange">right now</Underlined>
+            <Underlined className="text-brand-orange">Right now</Underlined>
           </h1>
 
-          <p className="mt-9 max-w-md text-lg text-white/75">
+          <p className="mt-20 max-w-md text-lg text-white/75">
             Live GPS tracking, driver behaviour, and fleet health in one platform.
             Sub-second location, historical routes, and instant alerts.
           </p>

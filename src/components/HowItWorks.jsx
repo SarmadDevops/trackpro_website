@@ -1,23 +1,24 @@
 import Underlined from "./Underlined";
-import { IconSearch, IconPin, IconChart } from "./icons";
+import mobileImg from "../assets/mobile.png";
+import locationImg from "../assets/location.png";
+import callImg from "../assets/call.png";
 
 const steps = [
   {
     n: "Step 1",
-    icon: IconSearch,
+    img: mobileImg,
     title: "Connect your devices",
     desc: "Pair your existing GPS trackers or OBD dongles in minutes. TrackPro auto-detects hardware and starts streaming location instantly.",
   },
   {
     n: "Step 2",
-    icon: IconPin,
+    img: locationImg,
     title: "See everything live",
     desc: "Watch every vehicle move on one real-time map with speed, status, and geofence alerts — from any browser or the mobile app.",
-    featured: true,
   },
   {
     n: "Step 3",
-    icon: IconChart,
+    img: callImg,
     title: "Act on the data",
     desc: "Get maintenance reminders, driver scorecards, and utilization reports so you can cut costs and keep the fleet running.",
   },
@@ -37,17 +38,12 @@ export default function HowItWorks() {
 
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {steps.map((s) => {
-            const Icon = s.icon;
             return (
               <div
                 key={s.n}
-                className={`flex h-full flex-col rounded-2xl p-8 text-center ${
-                  s.featured ? "bg-white shadow-card md:-translate-y-4" : "bg-white/60"
-                }`}
+                className="flex h-full flex-col rounded-2xl bg-white/60 p-8 text-center transition-all duration-300 hover:-translate-y-3 hover:bg-white hover:shadow-card"
               >
-                <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-brand-orange/10 text-brand-orange">
-                  <Icon className="h-7 w-7" />
-                </div>
+                <img src={s.img} alt={s.title} className="mx-auto h-24 w-24 object-contain md:h-28 md:w-28" />
                 <div className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-brand-orange">
                   {s.n}
                 </div>
