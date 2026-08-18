@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <>
       {/* brand strip */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-20 md:py-28">
         <div className="container-tp">
           <p className="text-center font-display text-lg font-bold text-brand-ink/80">
             Trusted by teams that keep the world moving

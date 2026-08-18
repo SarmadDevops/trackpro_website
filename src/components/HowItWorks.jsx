@@ -25,13 +25,13 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how" className="bg-brand-cloud py-24">
+    <section id="how" className="bg-brand-cloud py-20 md:py-28">
       <div className="container-tp">
         <div className="mx-auto max-w-3xl text-center">
           <span className="eyebrow">How TrackPro works</span>
-          <h2 className="section-heading mt-4">
-            Get your fleet online in{" "}
-            <Underlined className="text-brand-ink">three simple steps</Underlined>
+          <h2 className="section-heading mx-auto mt-4 max-w-2xl">
+            Get your fleet <Underlined className="text-brand-ink">online</Underlined> in{" "}
+            three simple steps
           </h2>
         </div>
 
@@ -41,7 +41,7 @@ export default function HowItWorks() {
             return (
               <div
                 key={s.n}
-                className={`rounded-2xl p-8 text-center ${
+                className={`flex h-full flex-col rounded-2xl p-8 text-center ${
                   s.featured ? "bg-white shadow-card md:-translate-y-4" : "bg-white/60"
                 }`}
               >

@@ -10,11 +10,11 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-20 md:py-28">
       <div className="container-tp">
         <div className="mx-auto max-w-3xl text-center">
           <span className="eyebrow">Why teams choose TrackPro</span>
-          <h2 className="section-heading mt-4">
+          <h2 className="section-heading mx-auto mt-4 max-w-2xl">
             Benefits from day one and get on the road{" "}
             <Underlined className="text-brand-ink">faster</Underlined>
           </h2>
@@ -25,7 +25,7 @@ export default function Benefits() {
             {benefits.map((b) => {
               const Icon = b.icon;
               return (
-                <article key={b.title} className="rounded-2xl bg-brand-cloud p-7">
+                <article key={b.title} className="flex h-full flex-col rounded-2xl bg-brand-cloud p-7">
                   <div className="flex items-center justify-between">
                     <h3 className="text-lg font-bold text-brand-ink">{b.title}</h3>
                     <span className="grid h-11 w-11 place-items-center rounded-xl bg-white text-brand-orange">

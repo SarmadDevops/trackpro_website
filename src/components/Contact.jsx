@@ -8,8 +8,8 @@ export default function Contact() {
   const [sent, setSent] = useState(false);
 
   return (
-    <section id="contact" className="bg-brand-ink py-24 text-white">
-      <div className="container-tp grid gap-14 lg:grid-cols-2">
+    <section id="contact" className="bg-brand-ink py-20 text-white md:py-28">
+      <div className="container-tp grid items-start gap-14 lg:grid-cols-2">
         <div>
           <span className="eyebrow">Contact us</span>
           <h2 className="mt-4 font-display text-4xl font-extrabold leading-[1.1] sm:text-5xl">

@@ -30,7 +30,7 @@ export default function Testimonials() {
   const next = () => setI((v) => (v + 1) % reviews.length);
 
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-20 md:py-28">
       <div className="container-tp">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>

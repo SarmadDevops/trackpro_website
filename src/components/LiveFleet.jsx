@@ -16,11 +16,11 @@ const IconFlame = (p) => (
 
 export default function LiveFleet() {
   return (
-    <section id="live-fleet" className="bg-white py-24">
+    <section id="live-fleet" className="bg-white py-20 md:py-28">
       <div className="container-tp">
         <div className="mx-auto max-w-3xl text-center">
           <span className="eyebrow">Your fleet, live</span>
-          <h2 className="section-heading mt-4">
+          <h2 className="section-heading mx-auto mt-4 max-w-2xl">
             Track every vehicle in real <Underlined className="text-brand-ink">time</Underlined>
           </h2>
         </div>
@@ -29,7 +29,7 @@ export default function LiveFleet() {
           {vehicles.map((v) => (
             <article
               key={v.name}
-              className={`flex flex-col rounded-2xl ${v.tint} p-6 transition-transform hover:-translate-y-1`}
+              className={`flex h-full flex-col rounded-2xl ${v.tint} p-6 transition-transform hover:-translate-y-1`}
             >
               <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-brand-orange px-3 py-1 text-xs font-semibold text-white">
                 <IconFlame className="h-3.5 w-3.5" /> Live now
@@ -65,7 +65,7 @@ export default function LiveFleet() {
 
               <a
                 href="#demo"
-                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-orange hover:gap-2.5"
+                className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-semibold text-brand-orange hover:gap-2.5"
               >
                 Track now <IconArrow className="h-4 w-4" />
               </a>

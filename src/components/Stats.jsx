@@ -9,8 +9,8 @@ const bullets = [
 
 export default function Stats() {
   return (
-    <section className="bg-brand-ink py-24 text-white">
-      <div className="container-tp grid items-center gap-14 lg:grid-cols-2">
+    <section className="bg-brand-ink py-20 text-white md:py-28">
+      <div className="container-tp grid items-start gap-14 lg:grid-cols-2">
         <div className="relative">
           <div className="overflow-hidden rounded-xl2 bg-brand-coal">
             <img

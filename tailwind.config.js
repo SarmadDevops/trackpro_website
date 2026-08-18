@@ -5,8 +5,8 @@ export default {
     extend: {
       colors: {
         brand: {
-          orange: "#F26A21",
-          orangeDark: "#D8560F",
+          orange: "#1CA0E8",
+          orangeDark: "#1580C0",
           ink: "#0B0B0C",
           coal: "#141416",
           smoke: "#1E1F22",

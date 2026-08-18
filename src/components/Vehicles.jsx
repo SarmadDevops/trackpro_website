@@ -66,11 +66,11 @@ export default function Vehicles() {
   const v = vehicles[active];
 
   return (
-    <section className="bg-brand-cloud py-24">
+    <section className="bg-brand-cloud py-20 md:py-28">
       <div className="container-tp">
         <div className="mx-auto max-w-3xl text-center">
           <span className="eyebrow">Premium tracking for every asset, worldwide</span>
-          <h2 className="section-heading mt-4">
+          <h2 className="section-heading mx-auto mt-4 max-w-2xl">
             Track cars, vans and trucks: a wide range of{" "}
             <Underlined className="text-brand-ink">vehicles</Underlined>
           </h2>

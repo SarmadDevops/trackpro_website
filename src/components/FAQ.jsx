@@ -42,17 +42,17 @@ export default function FAQ() {
   const cols = [faqs.slice(0, mid), faqs.slice(mid)];
 
   return (
-    <section id="faq" className="bg-brand-cloud py-24">
+    <section id="faq" className="bg-brand-cloud py-20 md:py-28">
       <div className="container-tp">
         <div className="mx-auto max-w-3xl text-center">
           <span className="eyebrow">Frequently asked questions</span>
-          <h2 className="section-heading mt-4">
+          <h2 className="section-heading mx-auto mt-4 max-w-2xl">
             Tracking with TrackPro: guide &amp;{" "}
             <Underlined className="text-brand-ink">FAQs</Underlined>
           </h2>
         </div>
 
-        <div className="mt-14 grid gap-4 lg:grid-cols-2">
+        <div className="mt-14 grid items-start gap-4 lg:grid-cols-2">
           {cols.map((col, ci) => (
             <div key={ci} className="space-y-4">
               {col.map((item, ii) => {

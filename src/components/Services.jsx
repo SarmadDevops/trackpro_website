@@ -53,7 +53,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="bg-brand-ink py-24 text-white">
+    <section id="services" className="bg-brand-ink py-20 text-white md:py-28">
       <div className="container-tp">
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white/80">
@@ -77,7 +77,7 @@ export default function Services() {
             return (
               <article
                 key={s.title}
-                className="group flex flex-col rounded-2xl border border-white/10 bg-brand-coal p-7 transition-colors hover:border-brand-orange/40"
+                className="group flex h-full flex-col rounded-2xl border border-white/10 bg-brand-coal p-7 transition-colors hover:border-brand-orange/40"
               >
                 <div className="flex items-center justify-between">
                   <span className="grid h-11 w-11 place-items-center rounded-xl bg-brand-orange/15 text-brand-orange">

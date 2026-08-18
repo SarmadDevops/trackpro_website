@@ -1,7 +1,6 @@
 import underline from "../assets/underline.png";
 
-// Wraps text with the hand-drawn orange underline PNG under it.
-export default function Underlined({ children, className = "" }) {
+export default function Underlined({ children, className = "", width = "100%" }) {
   return (
     <span className={`relative inline-block ${className}`}>
       {children}
@@ -9,7 +8,8 @@ export default function Underlined({ children, className = "" }) {
         src={underline}
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-full w-[108%] -translate-x-1/2 -translate-y-2 select-none"
+        style={{ maxWidth: width }}
+        className="pointer-events-none select-none absolute left-1/2 top-full -translate-x-1/2 -mt-[0.05em] w-full"
       />
     </span>
   );

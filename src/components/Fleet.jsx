@@ -10,11 +10,11 @@ const fleet = [
 
 export default function Fleet() {
   return (
-    <section id="fleet" className="bg-white py-24">
+    <section id="fleet" className="bg-white py-20 md:py-28">
       <div className="container-tp">
         <div className="mx-auto max-w-3xl text-center">
           <span className="eyebrow">One platform, every asset</span>
-          <h2 className="section-heading mt-4">
+          <h2 className="section-heading mx-auto mt-4 max-w-2xl">
             Track any vehicle in your{" "}
             <Underlined className="text-brand-ink">fleet</Underlined>
           </h2>
@@ -28,7 +28,7 @@ export default function Fleet() {
           {fleet.map((f) => (
             <article
               key={f.name}
-              className={`flex flex-col rounded-2xl ${f.tint} p-6 transition-transform hover:-translate-y-1`}
+              className={`flex h-full flex-col rounded-2xl ${f.tint} p-6 transition-transform hover:-translate-y-1`}
             >
               <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-brand-orange px-3 py-1 text-xs font-semibold text-white">
                 <IconPin className="h-3.5 w-3.5" /> {f.tag}
@@ -46,7 +46,7 @@ export default function Fleet() {
 
               <a
                 href="#demo"
-                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-orange hover:gap-2.5"
+                className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-semibold text-brand-orange hover:gap-2.5"
               >
                 See it live <IconArrow className="h-4 w-4" />
               </a>

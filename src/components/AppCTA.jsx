@@ -1,6 +1,6 @@
 export default function AppCTA() {
   return (
-    <section className="bg-white pb-24">
+    <section className="bg-white py-20 md:py-28">
       <div className="container-tp">
         <div className="relative overflow-hidden rounded-xl2 bg-brand-ink">
           <img
