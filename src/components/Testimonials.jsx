@@ -40,7 +40,7 @@ export default function Testimonials() {
               <Underlined className="text-brand-ink">about us</Underlined>
             </h2>
 
-            <div className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-brand-cloud px-5 py-3">
+            <div className="mt-20 inline-flex items-center gap-3 rounded-2xl bg-brand-cloud px-5 py-3">
               <span className="font-display font-bold text-brand-ink">Google Reviews</span>
               <span className="flex text-brand-orange">
                 {[...Array(5)].map((_, k) => (

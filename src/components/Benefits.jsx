@@ -21,18 +21,18 @@ export default function Benefits() {
         </div>
 
         <div className="mt-14 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2">
             {benefits.map((b) => {
               const Icon = b.icon;
               return (
-                <article key={b.title} className="flex h-full flex-col rounded-2xl bg-brand-cloud p-7">
-                  <div className="flex items-center justify-between">
+                <article key={b.title}>
+                  <div className="flex items-center justify-between gap-4 rounded-2xl bg-brand-cloud px-6 py-5">
                     <h3 className="text-lg font-bold text-brand-ink">{b.title}</h3>
-                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-white text-brand-orange">
+                    <span className="grid shrink-0 place-items-center rounded-xl bg-white p-2.5 text-brand-orange shadow-card">
                       <Icon className="h-5 w-5" />
                     </span>
                   </div>
-                  <p className="mt-4 text-sm leading-relaxed text-brand-ink/60">{b.desc}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-neutral-500">{b.desc}</p>
                 </article>
               );
             })}

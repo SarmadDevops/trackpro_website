@@ -1,62 +1,69 @@
 import { useState } from "react";
 import Underlined from "./Underlined";
-import { IconSpeed } from "./icons";
+import carImg from "../assets/car.png";
+import bikeImg from "../assets/bike.png";
+import truckImg from "../assets/truck.png";
+import busImg from "../assets/bus.png";
 
 const vehicles = [
   {
-    tab: "Delivery Vans",
-    name: "Delivery Vans",
-    desc: "Route-heavy urban fleets that need tight ETAs and cargo visibility.",
-    features: ["Live route deviation alerts", "Door & cargo sensors", "Stop-by-stop history"],
+    tab: "Car",
+    name: "Car",
+    image: carImg,
+    desc: "Personal and fleet cars tracked with pinpoint accuracy and instant theft alerts.",
+    features: ["Real-time location & speed", "Theft & tow-away alerts", "Trip history & playback"],
+    specs: [
+      ["Tracker", "OBD-II / hardwired"],
+      ["Update rate", "Every 10 sec"],
+      ["Sensors", "Speed, ignition"],
+      ["Geofences", "Unlimited"],
+      ["Battery backup", "Yes"],
+      ["Install time", "< 15 min"],
+    ],
+  },
+  {
+    tab: "Bike",
+    name: "Bike",
+    image: bikeImg,
+    desc: "Lightweight trackers for motorbikes with tamper detection and long battery life.",
+    features: ["Compact hidden tracker", "Tamper & motion alerts", "Low-battery notifications"],
+    specs: [
+      ["Tracker", "Wired micro-GPS"],
+      ["Update rate", "Every 10 sec"],
+      ["Sensors", "Motion, tilt"],
+      ["Geofences", "Unlimited"],
+      ["Battery backup", "Yes"],
+      ["Install time", "< 20 min"],
+    ],
+  },
+  {
+    tab: "Heavy Trucks",
+    name: "Heavy Trucks",
+    image: truckImg,
+    desc: "Rugged tracking for long-haul trucks with fuel and cargo monitoring.",
+    features: ["Fuel & idling monitoring", "Route & ETA tracking", "Driver behaviour reports"],
+    specs: [
+      ["Tracker", "Hardwired industrial"],
+      ["Update rate", "Every 5 sec"],
+      ["Sensors", "Fuel, temp, door"],
+      ["Geofences", "Unlimited"],
+      ["Battery backup", "Yes"],
+      ["Install time", "< 30 min"],
+    ],
+  },
+  {
+    tab: "Bus / Van",
+    name: "Bus / Van",
+    image: busImg,
+    desc: "Fleet visibility for buses and vans with passenger and cargo safety in mind.",
+    features: ["Live fleet map view", "Stop-by-stop history", "Door & cargo sensors"],
     specs: [
       ["Tracker", "OBD-II plug"],
       ["Update rate", "Every 5 sec"],
       ["Sensors", "Door, temp, fuel"],
       ["Geofences", "Unlimited"],
       ["Battery backup", "Yes"],
-      ["Install time", "< 5 min"],
-    ],
-  },
-  {
-    tab: "Sedans",
-    name: "Company Sedans",
-    desc: "Field teams and pool cars where driver safety and usage matter most.",
-    features: ["Driver behaviour scoring", "Trip playback", "Private/business mode"],
-    specs: [
-      ["Tracker", "OBD-II plug"],
-      ["Update rate", "Every 10 sec"],
-      ["Sensors", "Speed, harsh events"],
-      ["Geofences", "Unlimited"],
-      ["Battery backup", "Yes"],
-      ["Install time", "< 5 min"],
-    ],
-  },
-  {
-    tab: "Heavy Trucks",
-    name: "Heavy Trucks",
-    desc: "Long-haul and construction fleets running on CAN-bus telemetry.",
-    features: ["Engine diagnostics (DTC)", "Fuel & idle analytics", "Tachograph-ready"],
-    specs: [
-      ["Tracker", "CAN-bus hardwired"],
-      ["Update rate", "Every 3 sec"],
-      ["Sensors", "Engine, fuel, PTO"],
-      ["Geofences", "Unlimited"],
-      ["Battery backup", "Yes"],
-      ["Install time", "Pro install"],
-    ],
-  },
-  {
-    tab: "Motorbikes",
-    name: "Motorbikes",
-    desc: "Two-wheeler delivery fleets needing compact, tamper-proof trackers.",
-    features: ["Anti-theft alerts", "Compact hidden unit", "Rider trip logs"],
-    specs: [
-      ["Tracker", "Compact wired"],
-      ["Update rate", "Every 8 sec"],
-      ["Sensors", "Motion, tamper"],
-      ["Geofences", "Unlimited"],
-      ["Battery backup", "Yes"],
-      ["Install time", "< 15 min"],
+      ["Install time", "< 20 min"],
     ],
   },
 ];
@@ -77,25 +84,24 @@ export default function Vehicles() {
         </div>
 
         {/* tabs */}
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <div className="mt-12 flex flex-wrap justify-center gap-3 sm:flex-nowrap">
           {vehicles.map((item, i) => (
             <button
               key={item.tab}
               onClick={() => setActive(i)}
-              className={`flex items-center justify-between rounded-xl border-2 px-5 py-4 text-left transition ${
+              className={`flex-1 rounded-xl border-2 px-5 py-4 text-center font-semibold transition ${
                 i === active
-                  ? "border-brand-orange bg-white"
-                  : "border-transparent bg-white/60 hover:bg-white"
+                  ? "border-brand-orange bg-brand-orange/5 text-brand-ink"
+                  : "border-brand-ink/10 bg-white text-brand-ink/70 hover:bg-white"
               }`}
             >
-              <span className="font-semibold text-brand-ink">{item.tab}</span>
-              <IconSpeed className="h-6 w-6 text-brand-ink/30" />
+              {item.tab}
             </button>
           ))}
         </div>
 
         {/* detail */}
-        <div className="mt-8 grid gap-8 rounded-xl2 bg-white p-6 sm:p-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="mt-8 grid items-center gap-8 rounded-xl2 bg-white p-6 sm:p-10 lg:grid-cols-[0.85fr_1fr_0.85fr]">
           <div>
             <h3 className="text-2xl font-bold text-brand-ink">{v.name}</h3>
             <p className="mt-3 text-brand-ink/60">{v.desc}</p>
@@ -112,8 +118,18 @@ export default function Vehicles() {
             <a href="#demo" className="btn-primary mt-8">Request a demo</a>
           </div>
 
+          <div className="flex justify-center overflow-hidden py-6">
+            <img
+              key={active}
+              src={v.image}
+              alt={v.name}
+              className="max-h-72 w-auto object-contain"
+              style={{ animation: "slideFadeIn 0.4s ease-out" }}
+            />
+          </div>
+
           <div className="rounded-2xl bg-brand-ink p-7 text-white">
-            <dl className="divide-y divide-white/10">
+            <dl className="divide-y divide-dashed divide-white/15">
               {v.specs.map(([k, val]) => (
                 <div key={k} className="flex items-center justify-between py-3.5">
                   <dt className="text-sm text-white/55">{k}</dt>
