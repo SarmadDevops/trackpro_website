@@ -1,42 +1,67 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "./Logo";
+import HashLink from "./HashLink";
 
 const links = [
   { label: "Home", href: "#top" },
+  { label: "About", href: "/about" },
   { label: "Services", href: "#services" },
-  { label: "Fleet", href: "#fleet" },
+  { label: "Fleet", href: "#vehicles" },
+  { label: "Packages", href: "#packages" },
   { label: "How it works", href: "#how" },
   { label: "FAQ", href: "#faq" },
 ];
 
+function NavItem({ href, className, onClick, children }) {
+  if (href.startsWith("/")) {
+    return (
+      <Link to={href} className={className} onClick={onClick}>
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <HashLink href={href} className={className} onClick={onClick}>
+      {children}
+    </HashLink>
+  );
+}
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
 
   return (
-    <header className="absolute inset-x-0 top-0 z-40">
+    <header
+      className={`inset-x-0 top-0 z-40 ${
+        isHome ? "absolute" : "relative bg-brand-ink"
+      }`}
+    >
       <nav className="container-tp flex items-center justify-between py-5">
         <Logo dark />
 
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
             <li key={l.label}>
-              <a
+              <NavItem
                 href={l.href}
                 className="text-sm font-medium text-white/85 transition-colors hover:text-white"
               >
                 {l.label}
-              </a>
+              </NavItem>
             </li>
           ))}
         </ul>
 
         <div className="hidden items-center gap-3 md:flex">
-          <a href="#login" className="text-sm font-medium text-white/85 hover:text-white">
+          <HashLink href="#demo" className="text-sm font-medium text-white/85 hover:text-white">
             Log in
-          </a>
-          <a href="#demo" className="btn-primary px-5 py-2 text-sm">
+          </HashLink>
+          <HashLink href="#demo" className="btn-primary px-5 py-2 text-sm">
             Request a demo
-          </a>
+          </HashLink>
         </div>
 
         <button
@@ -58,19 +83,23 @@ export default function Navbar() {
               <ul className="flex flex-col gap-1">
                 {links.map((l) => (
                   <li key={l.label}>
-                    <a
+                    <NavItem
                       href={l.href}
                       onClick={() => setOpen(false)}
                       className="block rounded-lg px-3 py-2 text-white/90 hover:bg-white/10"
                     >
                       {l.label}
-                    </a>
+                    </NavItem>
                   </li>
                 ))}
               </ul>
-              <a href="#demo" onClick={() => setOpen(false)} className="btn-primary mt-3 w-full">
+              <HashLink
+                href="#demo"
+                onClick={() => setOpen(false)}
+                className="btn-primary mt-3 w-full"
+              >
                 Request a demo
-              </a>
+              </HashLink>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Underlined from "./Underlined";
 import heroBg from "../assets/hero-bg.png";
 
@@ -103,7 +104,11 @@ export default function Hero() {
                   Book my demo
                 </button>
                 <p className="text-center text-xs text-brand-ink/45">
-                  By submitting you agree to our privacy policy.
+                  By submitting you agree to our{" "}
+                  <Link to="/privacy" className="underline hover:text-brand-orange">
+                    privacy policy
+                  </Link>
+                  .
                 </p>
               </form>
             </>

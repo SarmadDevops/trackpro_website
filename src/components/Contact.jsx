@@ -4,6 +4,19 @@ import { IconPin, IconArrow } from "./icons";
 
 const locations = ["Islamabad HQ", "Lahore Station", "Karachi Station"];
 
+const IconPhone = (p) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z" />
+  </svg>
+);
+
+const IconMail = (p) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <rect x="2" y="4" width="20" height="16" rx="2" />
+    <path d="m22 6-10 7L2 6" />
+  </svg>
+);
+
 export default function Contact() {
   const [sent, setSent] = useState(false);
 
@@ -36,8 +49,19 @@ export default function Contact() {
           </div>
 
           <div className="mt-8 space-y-5">
-            <Station title="Our Station #1" addr="18C Nawab Town, Raiwind Road" />
-            <Station title="Our Station #2" addr="Blue Area, Jinnah Avenue, Islamabad" />
+            <Station title="TrackPro HQ" addr="425-K Block, Model Town, Lahore" icon={IconPin} />
+            <Station
+              title="Call us"
+              addr="042-35774335-7"
+              icon={IconPhone}
+              href="tel:+924235774335"
+            />
+            <Station
+              title="Email us"
+              addr="info@trackpro.com.pk"
+              icon={IconMail}
+              href="mailto:info@trackpro.com.pk"
+            />
           </div>
         </div>
 
@@ -80,15 +104,21 @@ export default function Contact() {
   );
 }
 
-function Station({ title, addr }) {
+function Station({ title, addr, icon: Icon = IconPin, href }) {
   return (
     <div className="flex items-start gap-4">
       <span className="grid h-11 w-11 flex-none place-items-center rounded-full bg-white text-brand-orange">
-        <IconPin className="h-5 w-5" />
+        <Icon className="h-5 w-5" />
       </span>
       <div>
         <div className="font-semibold">{title}</div>
-        <div className="text-sm text-white/55">{addr}</div>
+        {href ? (
+          <a href={href} className="text-sm text-white/55 transition hover:text-white">
+            {addr}
+          </a>
+        ) : (
+          <div className="text-sm text-white/55">{addr}</div>
+        )}
       </div>
     </div>
   );

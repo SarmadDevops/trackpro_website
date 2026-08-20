@@ -73,7 +73,7 @@ export default function Vehicles() {
   const v = vehicles[active];
 
   return (
-    <section className="bg-brand-cloud py-20 md:py-28">
+    <section id="vehicles" className="bg-brand-cloud py-20 md:py-28">
       <div className="container-tp">
         <div className="mx-auto max-w-3xl text-center">
           <span className="eyebrow">Premium tracking for every asset, worldwide</span>
@@ -89,13 +89,14 @@ export default function Vehicles() {
             <button
               key={item.tab}
               onClick={() => setActive(i)}
-              className={`flex-1 rounded-xl border-2 px-5 py-4 text-center font-semibold transition ${
+              className={`flex min-h-16 flex-1 items-center justify-center gap-4 rounded-xl border-2 px-5 py-3 font-semibold transition ${
                 i === active
                   ? "border-brand-orange bg-brand-orange/5 text-brand-ink"
                   : "border-brand-ink/10 bg-white text-brand-ink/70 hover:bg-white"
               }`}
             >
-              {item.tab}
+              <span>{item.tab}</span>
+              <img src={item.image} alt="" className="h-12 w-auto object-contain md:h-14" />
             </button>
           ))}
         </div>
