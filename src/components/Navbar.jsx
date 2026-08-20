@@ -8,8 +8,7 @@ const links = [
   { label: "About", href: "/about" },
   { label: "Services", href: "#services" },
   { label: "Fleet", href: "#vehicles" },
-  { label: "Packages", href: "#packages" },
-  { label: "How it works", href: "#how" },
+  { label: "Packages", href: "/packages" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -56,12 +55,9 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden items-center gap-3 md:flex">
-          <HashLink href="#demo" className="text-sm font-medium text-white/85 hover:text-white">
-            Log in
-          </HashLink>
-          <HashLink href="#demo" className="btn-primary px-5 py-2 text-sm">
-            Request a demo
-          </HashLink>
+          <a href="#" target="_blank" rel="noopener noreferrer" className="btn-primary px-5 py-2 text-sm">
+            Web Portal
+          </a>
         </div>
 
         <button
@@ -93,13 +89,15 @@ export default function Navbar() {
                   </li>
                 ))}
               </ul>
-              <HashLink
-                href="#demo"
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
                 className="btn-primary mt-3 w-full"
               >
-                Request a demo
-              </HashLink>
+                Web Portal
+              </a>
             </div>
           </div>
         </div>

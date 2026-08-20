@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Underlined from "./Underlined";
 
-const packages = [
+export const packages = [
   {
     name: "TrackPro Flex",
     tagline: "Smart Tracking. Flexible Protection.",

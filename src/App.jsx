@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Privacy from "./pages/Privacy";
 import About from "./pages/About";
+import Packages from "./pages/Packages";
 
 function ScrollManager() {
   const location = useLocation();
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/about" element={<About />} />
+        <Route path="/packages" element={<Packages />} />
       </Routes>
       <Footer />
     </>

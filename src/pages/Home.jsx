@@ -6,7 +6,6 @@ import HowItWorks from "../components/HowItWorks";
 import Stats from "../components/Stats";
 import Benefits from "../components/Benefits";
 import Vehicles from "../components/Vehicles";
-import Packages from "../components/Packages";
 import Testimonials from "../components/Testimonials";
 import AppCTA from "../components/AppCTA";
 import Contact from "../components/Contact";
@@ -23,7 +22,6 @@ export default function Home() {
       <HowItWorks />
       <Stats />
       <Benefits />
-      <Packages />
       <Testimonials />
       <AppCTA />
       <Contact />
